@@ -1,0 +1,48 @@
+/* Center the loading container */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black; /* Adjust based on your design */
+  z-index: 9999; /* Ensure it covers the entire page */
+}
+
+/* Create a mask for the logo */
+.logo-mask {
+  position: relative;
+  width: 1200px; /* Adjust the size as needed */
+  height: 300px; /* Adjust the size as needed */
+  background-image: url('../assets/Profile/loading.png'); /* Path to your logo */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Create the fill effect */
+.logo-mask::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transform: translateX(0);
+  animation: fill-left-to-right 1s normal; /* Adjust the duration for debugging */
+}
+
+/* Define the fill animation */ 
+@keyframes fill-left-to-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
